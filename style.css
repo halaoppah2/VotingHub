@@ -25,6 +25,10 @@ body{
 
 @media screen and (max-width: 787px){
     .vote{
-        font-size: 10pt;
+        font-size: 30pt;
+    }
+
+    .form-control{
+        width: 200px;
     }
 }
