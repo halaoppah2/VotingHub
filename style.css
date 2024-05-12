@@ -23,3 +23,8 @@ body{
 }
 
 
+@media screen and (max-width: 787px){
+    .vote{
+        font-size: 20pt;
+    }
+}
