@@ -28,7 +28,7 @@ body{
         font-size: 30pt;
     }
 
-    .form-control{
-        width: 100px;
+    .form-control {
+        width: 100%; /* Set the width to 100% on smaller screens */
     }
 }
