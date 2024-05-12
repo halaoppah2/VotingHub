@@ -3,11 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CITSA Voting Hug</title>
+    <title>Sign Up</title>
     <link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.css">
     <script type="text/javascript" src="bootstrap/js/bootstrap.js"></script>
     <link rel="icon" href="images/logo.png">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="signup.css">
     <script src="https://kit.fontawesome.com/8161412aed.js" crossorigin="anonymous"></script>
 </head>
 <body>
@@ -18,31 +18,22 @@
 
         
             <div class="row">
-                <div class="col-sm-5 p-3 bg-primary">
-                    
-                    <div style="display: flex; align-items: center; justify-content:    center;">
-                        <img src="images/logo.png" alt="logo" height="180px" width="180px" style="position: relative; top: 50px; background-color: rgb(237, 235, 232); border-radius: 100%; padding: 15px;">
-                    </div>
-
-                    <div style="text-align: center; margin-top: 50px;">
-
-                        <p style="font-size: 40pt; font-weight: bolder; color: white;">CITSA</p>
-
-                        <p class="vote" style="position: relative; font-size: 40pt; font-weight: bolder; margin-top: -40px; color: rgb(0, 213, 255);">VOTING HUB</p>
-                        
-                    </div>
-
-                    <i class="fa-solid fa-check-to-slot" style="font-size: 60pt; margin-top: 10px; display: flex; align-items: center; justify-content: center; color: white;"></i>
-
-                </div>
-                
+                                
                 <div class="col-sm-7 p-3" style="background-color: white">
 
                     <!-- login -->
 
                         <form action="/action_page.php" style="margin-left: 50px; margin-top: 30px;">
 
-                            <p style="text-align: center; font-size: 25pt; color: black;"><strong>Login</strong></p>
+                            <p style="text-align: center; font-size: 25pt; color: black;"><strong>Sign Up</strong></p>
+
+                            <div class="mb-3 mt-3">
+
+                                <label for="studentID" class="form-label"><strong>Name:</strong></label>
+  
+                                <input type="text" class="form-control" id="stID" placeholder="Enter name" name="studentID">
+  
+                              </div>
 
                             <div class="mb-3 mt-3">
 
@@ -70,19 +61,37 @@
 
                             </div>
 
-                            <button type="submit" class="btn btn-primary">Login</button>
+                            <button type="submit" class="btn btn-primary">Submit</button>
 
                             <div class="mb-3" style="margin-top: 30px;">
 
-                                <label for="pwd" class="form-label"><strong>Don't have an account?</strong></label>
+                                <label for="pwd" class="form-label"><strong>Already have an account?</strong></label>
   
-                                <button type="submit" class="btn btn-dark"><strong><a href="signup.html">Sign Up</a></strong></button>
+                                <button type="submit" class="btn btn-dark"><strong><a href="index.html">Login</a></strong></button>
   
                               </div>
 
                             <p style="color: red; margin-top: 30px;"><strong>Note: Use 1234 as default password</strong></p>
 
                         </form>
+                </div>
+
+                <div class="col-sm-5 p-3 bg-primary">
+                    
+                    <div style="display: flex; align-items: center; justify-content:    center;">
+                        <img src="images/logo.png" alt="logo" height="180px" width="180px" style="position: relative; top: 50px; background-color: rgb(237, 235, 232); border-radius: 100%; padding: 15px;">
+                    </div>
+
+                    <div style="text-align: center; margin-top: 50px;">
+
+                        <p style="font-size: 40pt; font-weight: bolder; color: white;">CITSA</p>
+
+                        <p class="vote" style="position: relative; font-size: 40pt; font-weight: bolder; margin-top: -40px; color: rgb(0, 213, 255);">VOTING HUB</p>
+                        
+                    </div>
+
+                    <i class="fa-solid fa-check-to-slot" style="font-size: 60pt; margin-top: 10px; display: flex; align-items: center; justify-content: center; color: white;"></i>
+
                 </div>
 
             </div>
