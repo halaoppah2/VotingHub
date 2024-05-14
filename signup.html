@@ -23,15 +23,15 @@
 
                     <!-- login -->
 
-                        <form action="/action_page.php" style="margin-left: 50px; margin-top: 30px;">
+                        <form action="/action_page.php" style="margin-left: 50px; margin-top: 30px;" id="signUp">
 
                             <p style="text-align: center; font-size: 25pt; color: black;"><strong>Sign Up</strong></p>
 
                             <div class="mb-3 mt-3">
 
-                                <label for="studentID" class="form-label"><strong>Name:</strong></label>
+                                <label for="name" class="form-label"><strong>Name:</strong></label>
   
-                                <input type="text" class="form-control" id="stID" placeholder="Enter name" name="studentID">
+                                <input type="text" class="form-control" id="name" placeholder="Enter name" name="studentID">
   
                               </div>
 
@@ -89,6 +89,24 @@
        </div>
 
     </div>
+
+    <script>
+
+          document.getElementById('signUp').addEventListener('submit', function(event) {
+          var myName = document.getElementById('name').value;
+          var studentID = document.getElementById('stID').value;
+          var password = document.getElementById('pwd').value;
+
+          if (studentID.trim() === '' || password.trim() === '') {
+
+              password = 1234;
+
+              alert('Fields cannot be empty');
+              event.preventDefault(); 
+          }
+      });
+
+    </script>
     
 </body>
 </html>

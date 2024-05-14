@@ -40,7 +40,7 @@
 
                     <!-- login -->
 
-                        <form action="/action_page.php" style="margin-left: 50px; margin-top: 30px;">
+                        <form action="/action_page.php" style="margin-left: 50px; margin-top: 30px;" id="loginForm">
 
                             <p style="text-align: center; font-size: 25pt; color: black;"><strong>Login</strong></p>
 
@@ -64,7 +64,7 @@
 
                               <label class="form-check-label">
 
-                                <input class="form-check-input" type="checkbox" name="remember"> Remember me
+                                <input class="form-check-input" type="checkbox" name="remember" id="rememberMe"> Remember me
 
                               </label>
 
@@ -90,6 +90,52 @@
        </div>
 
     </div>
+
+
+    <script>
+
+      //login should be empty
+      document.getElementById('loginForm').addEventListener('submit', function(event) {
+          var studentID = document.getElementById('stID').value;
+          var password = document.getElementById('pwd').value;
+
+          if (studentID.trim() === '' || password.trim() === '') {
+
+              password = 1234;
+
+              alert('Fields cannot be empty');
+              event.preventDefault(); 
+          }
+      });
+
+      // save password
+      function savePassword() {
+            var rememberMeCheckbox = document.getElementById('rememberMe');
+            var passwordInput = document.getElementById('pwd');
+            
+            if (rememberMeCheckbox.checked) {
+                localStorage.setItem('password', passwordInput.value);
+            } else {
+                localStorage.removeItem('password');
+            }
+        }
+
+        // Load password 
+        document.getElementById('loginForm').addEventListener('submit', function(event) {
+            savePassword();
+        });
+
+        // Load password on load
+        window.onload = function() {
+            var passwordInput = document.getElementById('pwd');
+            var savedPassword = localStorage.getItem('password');
+
+            if (savedPassword) {
+                passwordInput.value = savedPassword;
+            }
+        };
+
+  </script>
     
 </body>
 </html>
