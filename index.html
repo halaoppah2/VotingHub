@@ -92,50 +92,60 @@
     </div>
 
 
-    <script>
+  <script>
+    // save password when "Remember me" 
+    function savePassword() {
+        var rememberMeCheckbox = document.getElementById('rememberMe');
+        var passwordInput = document.getElementById('pwd');
 
-      //login should be empty
-      document.getElementById('loginForm').addEventListener('submit', function(event) {
-          var studentID = document.getElementById('stID').value;
-          var password = document.getElementById('pwd').value;
+        if (rememberMeCheckbox.checked) {
+            localStorage.setItem('password', passwordInput.value);
+        } else {
+            localStorage.removeItem('password');
+        }
+    }
 
-          if (studentID.trim() === '' || password.trim() === '') {
+    // load saved password when the page is loaded
+    window.onload = function() {
+        var passwordInput = document.getElementById('pwd');
+        var savedPassword = localStorage.getItem('password');
 
-              password = 1234;
+        if (savedPassword) {
+            passwordInput.value = savedPassword;
+        }
+    };
 
-              alert('Fields cannot be empty');
-              event.preventDefault(); 
-          }
-      });
+    //  login form submission
+    document.getElementById('loginForm').addEventListener('submit', function(event) {
+        var studentID = document.getElementById('stID').value;
+        var password = document.getElementById('pwd').value;
 
-      // save password
-      function savePassword() {
-            var rememberMeCheckbox = document.getElementById('rememberMe');
-            var passwordInput = document.getElementById('pwd');
+        
+        if (studentID.trim() === '' || password.trim() === '') {
+            alert('Fields cannot be empty');
+            event.preventDefault();
+        } else {
             
-            if (rememberMeCheckbox.checked) {
-                localStorage.setItem('password', passwordInput.value);
+            if (studentID.trim() !== '') {
+                alert('Login successful!');
+                savePassword(); 
+
+                // Debugging alert to check if this code block is executed
+                alert('Before redirecting to main.html...');
+
+                window.location.href = 'main.html';
+
+                // Debugging alert to check if redirection is attempted
+                alert('After redirecting to main.html...');
             } else {
-                localStorage.removeItem('password');
+                alert('Invalid student ID or password');
+                event.preventDefault();
             }
         }
+    });
+</script>
 
-        // Load password 
-        document.getElementById('loginForm').addEventListener('submit', function(event) {
-            savePassword();
-        });
 
-        // Load password on load
-        window.onload = function() {
-            var passwordInput = document.getElementById('pwd');
-            var savedPassword = localStorage.getItem('password');
-
-            if (savedPassword) {
-                passwordInput.value = savedPassword;
-            }
-        };
-
-  </script>
     
 </body>
 </html>
