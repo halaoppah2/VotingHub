@@ -23,7 +23,7 @@
 
                     <!-- login -->
 
-                        <form action="/action_page.php" style="margin-left: 50px; margin-top: 30px;" id="signUp">
+                        <form style="margin-left: 50px; margin-top: 30px;" id="signUp">
 
                             <p style="text-align: center; font-size: 25pt; color: black;"><strong>Sign Up</strong></p>
 
@@ -91,21 +91,36 @@
     </div>
 
     <script>
+      var registeredStudentIDs = [];
 
-          document.getElementById('signUp').addEventListener('submit', function(event) {
-          var myName = document.getElementById('name').value;
-          var studentID = document.getElementById('stID').value;
-          var password = document.getElementById('pwd').value;
+      document.getElementById('signUp').addEventListener('submit', function(event) {
+            var myName = document.getElementById('name').value;
+            var studentID = document.getElementById('stID').value;
+            var password = document.getElementById('pwd').value;
 
-          if (studentID.trim() === '' || password.trim() === '') {
+            // Check if student ID is already registered
+            if (localStorage.getItem(studentID)) {
+                alert('Student ID is already registered.');
+                event.preventDefault(); 
 
-              password = 1234;
+            } else if (myName.trim() === '' || studentID.trim() === '' || password.trim() === '') {
+                password = '1234'; 
+                alert('Fields cannot be empty.');
+                event.preventDefault(); 
+            } else {
+                // Save sign-up data
+                localStorage.setItem(studentID, JSON.stringify({ name: myName, password: password }));
+                alert('Sign up successful!');
+                window.location.href = 'index.html'; 
+            
+                 // Add the student ID to the list of registered IDs
+            registeredStudentIDs.push(studentID);
+            alert('You will now be redirected to the login page.');
+            window.location.href = 'index.html'; 
+              }
 
-              alert('Fields cannot be empty');
-              event.preventDefault(); 
-          }
-      });
-
+        });
+    
     </script>
     
 </body>
