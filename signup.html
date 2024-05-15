@@ -107,6 +107,8 @@
                 password = '1234'; 
                 alert('Fields cannot be empty.');
                 event.preventDefault(); 
+            }else if(password.trim() !== '1234'){
+                    alert('Invalid password, kindly use the dafaut password.')
             } else {
                 // Save sign-up data
                 localStorage.setItem(studentID, JSON.stringify({ name: myName, password: password }));
